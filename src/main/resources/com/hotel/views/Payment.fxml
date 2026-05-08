@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.hotel.controllers.PaymentController"
+            styleClass="root-pane">
+
+    <top>
+        <HBox styleClass="nav-bar" alignment="CENTER_LEFT" spacing="10">
+            <padding><Insets top="10" right="20" bottom="10" left="20"/></padding>
+            <Label text="💳 Checkout &amp; Payment" styleClass="nav-brand"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="← Back to Dashboard" onAction="#goBack" styleClass="nav-btn"/>
+        </HBox>
+    </top>
+
+    <center>
+        <HBox spacing="20" alignment="TOP_CENTER">
+            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+            <!-- Payment Controls -->
+            <VBox styleClass="card" spacing="14" minWidth="280">
+                <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                <Label text="Payment Details" styleClass="section-title"/>
+                <Separator/>
+
+                <Label text="Select Reservation:" styleClass="form-label"/>
+                <ComboBox fx:id="reservationCombo" styleClass="input-field" maxWidth="260"/>
+
+                <Label text="Payment Method:" styleClass="form-label"/>
+                <ComboBox fx:id="paymentMethodCombo" styleClass="input-field" maxWidth="260"/>
+
+                <Button text="Generate Invoice" onAction="#generateInvoice"
+                        styleClass="secondary-btn" maxWidth="260"/>
+                <Button text="Confirm Payment" onAction="#handleConfirmPayment"
+                        styleClass="primary-btn" maxWidth="260"/>
+
+                <Label fx:id="statusLabel" text="" styleClass="status-label"/>
+            </VBox>
+
+            <!-- Invoice Display -->
+            <VBox styleClass="card" spacing="10" HBox.hgrow="ALWAYS">
+                <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                <Label text="Invoice Preview" styleClass="section-title"/>
+                <Separator/>
+                <TextArea fx:id="invoiceArea" editable="false" styleClass="invoice-area"
+                          wrapText="true" prefHeight="350"
+                          promptText="Select a reservation and click Generate Invoice..."/>
+            </VBox>
+        </HBox>
+    </center>
+
+</BorderPane>

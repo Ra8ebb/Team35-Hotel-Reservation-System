@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.hotel.controllers.ChatController"
+            styleClass="root-pane">
+
+    <top>
+        <HBox styleClass="nav-bar" alignment="CENTER_LEFT" spacing="10">
+            <padding><Insets top="10" right="20" bottom="10" left="20"/></padding>
+            <Label text="💬 Guest-Staff Live Chat" styleClass="nav-brand"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="statusLabel" styleClass="hint-label"/>
+            <Button text="← Back" onAction="#goBack" styleClass="nav-btn"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="10">
+            <padding><Insets top="16" right="20" bottom="16" left="20"/></padding>
+            <TextArea fx:id="chatArea" editable="false" wrapText="true"
+                      VBox.vgrow="ALWAYS" prefHeight="460"
+                      styleClass="chat-area"
+                      promptText="Messages will appear here..."/>
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox styleClass="chat-input-bar" spacing="10" alignment="CENTER">
+            <padding><Insets top="10" right="20" bottom="10" left="20"/></padding>
+            <TextField fx:id="messageField" HBox.hgrow="ALWAYS"
+                       promptText="Type a message..."
+                       styleClass="input-field"
+                       onKeyPressed="#handleEnterKey"/>
+            <Button text="Send" onAction="#handleSend" styleClass="primary-btn"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.hotel.controllers.GuestDashboardController"
+            styleClass="root-pane">
+
+    <!-- Top Navigation Bar -->
+    <top>
+        <HBox styleClass="nav-bar" alignment="CENTER_LEFT" spacing="10">
+            <padding><Insets top="10" right="20" bottom="10" left="20"/></padding>
+            <Label text="🏨 Hotel System" styleClass="nav-brand"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Browse Rooms"     onAction="#goToRooms"        styleClass="nav-btn"/>
+            <Button text="Reservations"     onAction="#goToReservations" styleClass="nav-btn"/>
+            <Button text="Payment"          onAction="#goToPayment"      styleClass="nav-btn"/>
+            <Button text="Chat"             onAction="#goToChat"         styleClass="nav-btn"/>
+            <Button text="Logout"           onAction="#handleLogout"     styleClass="danger-btn"/>
+        </HBox>
+    </top>
+
+    <center>
+        <HBox spacing="20" alignment="TOP_CENTER">
+            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+            <!-- Profile Card -->
+            <VBox styleClass="card" spacing="10" minWidth="250">
+                <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                <Label fx:id="welcomeLabel" text="Welcome!" styleClass="section-title"/>
+                <Separator/>
+                <Label text="Username:" styleClass="form-label"/>
+                <Label fx:id="usernameLabel" styleClass="info-value"/>
+                <Label text="Date of Birth:" styleClass="form-label"/>
+                <Label fx:id="dobLabel" styleClass="info-value"/>
+                <Label text="Address:" styleClass="form-label"/>
+                <Label fx:id="addressLabel" styleClass="info-value"/>
+                <Label text="Gender:" styleClass="form-label"/>
+                <Label fx:id="genderLabel" styleClass="info-value"/>
+                <Label text="Room Preference:" styleClass="form-label"/>
+                <Label fx:id="preferenceLabel" styleClass="info-value"/>
+                <Separator/>
+                <Label text="Balance:" styleClass="form-label"/>
+                <Label fx:id="balanceLabel" styleClass="balance-label"/>
+            </VBox>
+
+            <!-- Reservations Overview -->
+            <VBox styleClass="card" spacing="10" HBox.hgrow="ALWAYS">
+                <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                <Label text="Your Active Reservations" styleClass="section-title"/>
+                <ListView fx:id="reservationsList" VBox.vgrow="ALWAYS" styleClass="list-view"/>
+            </VBox>
+        </HBox>
+    </center>
+
+</BorderPane>

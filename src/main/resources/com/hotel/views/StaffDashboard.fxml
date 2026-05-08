@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.hotel.controllers.StaffDashboardController"
+            styleClass="root-pane">
+
+    <top>
+        <HBox styleClass="nav-bar" alignment="CENTER_LEFT" spacing="10">
+            <padding><Insets top="10" right="20" bottom="10" left="20"/></padding>
+            <Label fx:id="welcomeLabel" text="Staff Dashboard" styleClass="nav-brand"/>
+            <Label fx:id="roleLabel" text="" styleClass="hint-label"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Chat" onAction="#goToChat" styleClass="nav-btn"/>
+            <Button text="Logout" onAction="#handleLogout" styleClass="danger-btn"/>
+        </HBox>
+    </top>
+
+    <center>
+        <HBox spacing="16" alignment="TOP_CENTER">
+            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+            <!-- Guests -->
+            <VBox styleClass="card" spacing="10" HBox.hgrow="ALWAYS">
+                <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+                <Label text="Registered Guests" styleClass="section-title"/>
+                <ListView fx:id="guestList" VBox.vgrow="ALWAYS" prefHeight="400" styleClass="list-view"/>
+            </VBox>
+
+            <!-- Rooms -->
+            <VBox styleClass="card" spacing="10" HBox.hgrow="ALWAYS">
+                <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+                <Label text="All Rooms" styleClass="section-title"/>
+                <ListView fx:id="roomList" VBox.vgrow="ALWAYS" prefHeight="400" styleClass="list-view"/>
+            </VBox>
+
+            <!-- Reservations -->
+            <VBox styleClass="card" spacing="10" HBox.hgrow="ALWAYS">
+                <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+                <Label text="Active Reservations" styleClass="section-title"/>
+                <ListView fx:id="reservationList" VBox.vgrow="ALWAYS" prefHeight="400" styleClass="list-view"/>
+            </VBox>
+        </HBox>
+    </center>
+
+</BorderPane>

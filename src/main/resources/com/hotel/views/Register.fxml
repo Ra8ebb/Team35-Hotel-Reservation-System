@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.hotel.controllers.RegisterController"
+            styleClass="root-pane">
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="scroll-pane">
+            <VBox alignment="CENTER" spacing="14" styleClass="card">
+                <padding><Insets top="30" right="50" bottom="30" left="50"/></padding>
+
+                <Label text="Create Guest Account" styleClass="title-label"/>
+
+                <GridPane hgap="10" vgap="12" alignment="CENTER">
+                    <Label text="Username:" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="form-label"/>
+                    <TextField fx:id="usernameField" promptText="Choose a username"
+                               GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="input-field" minWidth="220"/>
+
+                    <Label text="Password:" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="form-label"/>
+                    <PasswordField fx:id="passwordField" promptText="Password"
+                                  GridPane.rowIndex="1" GridPane.columnIndex="1" styleClass="input-field"/>
+
+                    <Label text="Confirm Password:" GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="form-label"/>
+                    <PasswordField fx:id="confirmPasswordField" promptText="Confirm password"
+                                  GridPane.rowIndex="2" GridPane.columnIndex="1" styleClass="input-field"/>
+
+                    <Label text="Address:" GridPane.rowIndex="3" GridPane.columnIndex="0" styleClass="form-label"/>
+                    <TextField fx:id="addressField" promptText="Your address"
+                               GridPane.rowIndex="3" GridPane.columnIndex="1" styleClass="input-field"/>
+
+                    <Label text="Date of Birth:" GridPane.rowIndex="4" GridPane.columnIndex="0" styleClass="form-label"/>
+                    <DatePicker fx:id="dobPicker" GridPane.rowIndex="4" GridPane.columnIndex="1" styleClass="input-field"/>
+
+                    <Label text="Gender:" GridPane.rowIndex="5" GridPane.columnIndex="0" styleClass="form-label"/>
+                    <ComboBox fx:id="genderCombo" promptText="Select gender"
+                              GridPane.rowIndex="5" GridPane.columnIndex="1" styleClass="input-field" maxWidth="220"/>
+
+                    <Label text="Room Preference:" GridPane.rowIndex="6" GridPane.columnIndex="0" styleClass="form-label"/>
+                    <ComboBox fx:id="preferenceCombo" promptText="Select preference"
+                              GridPane.rowIndex="6" GridPane.columnIndex="1" styleClass="input-field" maxWidth="220"/>
+                </GridPane>
+
+                <Label fx:id="statusLabel" text="" styleClass="status-label"/>
+
+                <HBox spacing="12" alignment="CENTER">
+                    <Button text="Create Account" onAction="#handleRegister" styleClass="primary-btn"/>
+                    <Button text="← Back to Login" onAction="#handleBack" styleClass="secondary-btn"/>
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

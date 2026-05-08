@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.hotel.controllers.RoomBrowseController"
+            styleClass="root-pane">
+
+    <top>
+        <HBox styleClass="nav-bar" alignment="CENTER_LEFT" spacing="10">
+            <padding><Insets top="10" right="20" bottom="10" left="20"/></padding>
+            <Label text="🛏 Browse Available Rooms" styleClass="nav-brand"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="← Back to Dashboard" onAction="#goBack" styleClass="nav-btn"/>
+            <Button text="Make Reservation" onAction="#goToReservations" styleClass="primary-btn"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="14">
+            <padding><Insets top="16" right="20" bottom="16" left="20"/></padding>
+
+            <!-- Filter Bar -->
+            <HBox styleClass="card" spacing="14" alignment="CENTER_LEFT">
+                <padding><Insets top="12" right="16" bottom="12" left="16"/></padding>
+                <Label text="Room Type:" styleClass="form-label"/>
+                <ComboBox fx:id="typeFilter" styleClass="input-field"/>
+                <Label text="Max Price ($/night):" styleClass="form-label"/>
+                <TextField fx:id="maxPriceField" promptText="e.g. 200" styleClass="input-field" maxWidth="100"/>
+                <Label text="Amenity:" styleClass="form-label"/>
+                <TextField fx:id="amenityFilter" promptText="e.g. WiFi" styleClass="input-field" maxWidth="120"/>
+                <Button text="Apply Filters" onAction="#applyFilters" styleClass="primary-btn"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="statusLabel" text="" styleClass="hint-label"/>
+            </HBox>
+
+            <!-- Room List -->
+            <ListView fx:id="roomListView" VBox.vgrow="ALWAYS" styleClass="list-view" prefHeight="420"/>
+        </VBox>
+    </center>
+
+</BorderPane>

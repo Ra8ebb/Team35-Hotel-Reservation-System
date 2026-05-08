@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.hotel.controllers.ReservationsController"
+            styleClass="root-pane">
+
+    <top>
+        <HBox styleClass="nav-bar" alignment="CENTER_LEFT" spacing="10">
+            <padding><Insets top="10" right="20" bottom="10" left="20"/></padding>
+            <Label text="📅 Reservations" styleClass="nav-brand"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="← Back to Dashboard" onAction="#goBack" styleClass="nav-btn"/>
+        </HBox>
+    </top>
+
+    <center>
+        <HBox spacing="20" alignment="TOP_CENTER">
+            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+            <!-- Create Reservation -->
+            <VBox styleClass="card" spacing="12" minWidth="320">
+                <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                <Label text="New Reservation" styleClass="section-title"/>
+                <Separator/>
+
+                <Label text="Select Room:" styleClass="form-label"/>
+                <ComboBox fx:id="roomCombo" onAction="#updateCostPreview"
+                          styleClass="input-field" maxWidth="280"/>
+
+                <Label text="Check-In Date:" styleClass="form-label"/>
+                <DatePicker fx:id="checkInPicker" onAction="#updateCostPreview" styleClass="input-field"/>
+
+                <Label text="Check-Out Date:" styleClass="form-label"/>
+                <DatePicker fx:id="checkOutPicker" onAction="#updateCostPreview" styleClass="input-field"/>
+
+                <Label fx:id="costPreviewLabel" text="Select dates to see cost." styleClass="hint-label"/>
+                <Label fx:id="createStatusLabel" text="" styleClass="status-label"/>
+
+                <Button text="Confirm Reservation" onAction="#handleCreateReservation"
+                        styleClass="primary-btn" maxWidth="280"/>
+            </VBox>
+
+            <!-- Reservation History -->
+            <VBox styleClass="card" spacing="12" HBox.hgrow="ALWAYS">
+                <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                <Label text="Reservation History" styleClass="section-title"/>
+                <Separator/>
+                <ListView fx:id="historyList" VBox.vgrow="ALWAYS" styleClass="list-view" prefHeight="350"/>
+                <Label fx:id="cancelStatusLabel" text="" styleClass="status-label"/>
+                <Button text="Cancel Selected Reservation" onAction="#handleCancelSelected"
+                        styleClass="danger-btn"/>
+            </VBox>
+        </HBox>
+    </center>
+
+</BorderPane>
