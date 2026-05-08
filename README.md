@@ -1,7 +1,7 @@
-# Hotel Reservation System — Milestone 2
+# Hotel Reservation System
 
 A JavaFX-based hotel management GUI with SQLite persistence, multi-threading,
-and basic socket-based live chat. Built on top of the Milestone 1 OOP backend.
+and basic socket-based live chat.
 
 ---
 
@@ -92,22 +92,10 @@ mvn javafx:run
 ### Demo Credentials
 | Role        | Username | Password  |
 |-------------|----------|-----------|
-| Guest       | johndoe  | pass123   |
+| Guest       | Mario    | 1234      |
 | Guest       | janedoe  | pass456   |
 | Admin       | admin    | admin123  |
 | Receptionist| recep    | recep123  |
-
----
-
-## 👥 Team Task Division
-
-| Member   | Responsibility                                                                 |
-|----------|--------------------------------------------------------------------------------|
-| Member 1 | `LoginController`, `RegisterController`, `Login.fxml`, `Register.fxml`, `SessionManager`, `SceneNavigator` |
-| Member 2 | `RoomBrowseController`, `ReservationsController`, `RoomBrowse.fxml`, `Reservations.fxml`, `RoomAvailabilityService` |
-| Member 3 | `PaymentController`, `GuestDashboardController`, `Payment.fxml`, `GuestDashboard.fxml`, `Invoice` updates |
-| Member 4 | `ChatServer`, `ChatClient`, `ChatController`, `Chat.fxml`                      |
-| Member 5 | `DatabaseManager` (schema), `ReservationDAO`, `HotelDatabase` (extended), `hotel.css`, `StaffDashboard`, `module-info.java`, integration testing |
 
 ---
 
@@ -149,11 +137,6 @@ mvn javafx:run
 | Scenario                    | Expected Behavior                                          |
 |-----------------------------|------------------------------------------------------------|
 | Room Browse auto-refresh    | Status label updates every 10s without freezing the UI     |
-| CSV export (background)     | CSV files appear in project root every 15 seconds          |
+| CSV export (background)     | CSV files appear in project root every 30 seconds          |
 
 ---
-
-## 📦 Dependencies (pom.xml)
-- `org.openjfx:javafx-controls:21.0.2`
-- `org.openjfx:javafx-fxml:21.0.2`
-- `org.xerial:sqlite-jdbc:3.45.1.0`
